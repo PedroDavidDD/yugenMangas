@@ -23,7 +23,6 @@ public class YugenMangas {
         vistaManga.setLocationRelativeTo(null);
         
         System.out.println("Repositorio creado 1");
-        System.out.println("Repositorio creado 2");
     }
     
 }
