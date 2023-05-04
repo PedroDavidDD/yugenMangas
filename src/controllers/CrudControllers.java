@@ -6,6 +6,7 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import models.Manga;
@@ -23,8 +24,11 @@ public class CrudControllers implements ActionListener{
     public CrudControllers(jfrmMangas vistaCrud,DaoMangaImpl modeloCrud) {
         this.modeloCrud=modeloCrud;
         this.vistaCrud=vistaCrud;
+        this.vistaCrud=vistaCrud;
         
+        // Si este evento se activa
         this.vistaCrud.btnVerDatos.addActionListener(this);
+        this.vistaCrud.btnInsertar.addActionListener(this);
     }
     
     public void InitialCrud(){
@@ -33,10 +37,14 @@ public class CrudControllers implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vistaCrud.btnAdicionar){
-            InsertarTabla(vistaCrud.tableDatosDeMangas);
+            AdicionarTabla(vistaCrud.tableDatosDeMangas);
         }
         if (e.getSource() == vistaCrud.btnVerDatos){
             LlenarTabla(vistaCrud.tableDatosDeMangas);
+        }
+        
+        if (e.getSource() == vistaCrud.btnInsertar){
+            InsertTabla();
         }
         
     }
@@ -76,7 +84,29 @@ public class CrudControllers implements ActionListener{
             this.vistaCrud.txtLista.setText(data);
     }
     
-    public void InsertarTabla( JTable tablaD){
+    public void AdicionarTabla( JTable tablaD){
         
+    }
+    
+    public void InsertTabla(){
+        String description = vistaCrud.txtDescription.getText();
+        int ageRestriction = vistaCrud.cbxMan_ar_id.getSelectedIndex()+1;
+        int author = vistaCrud.cbxMan_author_id.getSelectedIndex()+1;
+        int comments = vistaCrud.cbxMan_comment_id.getSelectedIndex()+1;
+        int tm_production = vistaCrud.cbxMan_production_id.getSelectedIndex()+1;
+        int tm_scan = vistaCrud.cbxMan_scan_id.getSelectedIndex()+1;
+        int title = vistaCrud.cbxMan_title_id.getSelectedIndex()+1;
+        
+        
+        manga = new Manga(description, ageRestriction, author, comments, tm_production, tm_scan, title);
+        
+        String rptaRegistro = modeloCrud.mangaIns(manga);
+        
+        if (rptaRegistro != null){
+            JOptionPane.showMessageDialog(null, rptaRegistro);
+        }else {
+            JOptionPane.showMessageDialog(null, "registro erroneo");
+        }
+                
     }
 }

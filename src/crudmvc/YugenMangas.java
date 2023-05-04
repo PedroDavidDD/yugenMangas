@@ -22,7 +22,6 @@ public class YugenMangas {
         vistaManga.setVisible(true);
         vistaManga.setLocationRelativeTo(null);
         
-        System.out.println("Repositorio creado 1");
     }
     
 }

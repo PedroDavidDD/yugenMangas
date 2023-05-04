@@ -63,8 +63,7 @@ SELECT * FROM mangas_view;
 -- insert_mangas 
 -- -----------------------------
 
-CREATE PROCEDURE insert_mangas(
-    @man_description varchar(100), 
+create @man_description varchar(100), 
     @man_ar_id int, 
     @man_author_id int, 
     @man_comment_id int, 

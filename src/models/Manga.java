@@ -28,8 +28,7 @@ public class Manga {
     public Manga() {
     }
 
-    public Manga(Integer man_id, String man_description, Integer man_ar_id, Integer man_author_id, Integer man_comment_id, Integer man_production_id, Integer man_scan_id, Integer man_title_id) {
-        this.man_id = man_id;
+    public Manga( String man_description, Integer man_ar_id, Integer man_author_id, Integer man_comment_id, Integer man_production_id, Integer man_scan_id, Integer man_title_id) {
         this.man_description = man_description;
         this.man_ar_id = man_ar_id;
         this.man_author_id = man_author_id;

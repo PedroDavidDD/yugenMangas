@@ -4,7 +4,7 @@
  */
 
 
-import com.mysql.cj.protocol.Resultset;
+//import com.mysql.cj.protocol.Resultset;
 import java.sql.SQLException;
 import util.ConexionBD;
 import java.sql.Connection;
@@ -17,6 +17,7 @@ import java.sql.ResultSet;
  */
 public class Conexion {
     public static void main(String[] args) throws SQLException{
+        //verConexion();
         verDataMangas();
     }
     
